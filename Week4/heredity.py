@@ -189,10 +189,8 @@ def joint_probability(people, one_gene, two_genes, have_trait):
         else:
             num_of_gene = 0
 
-        if person in have_trait:
-            trait = True
-        else:
-            trait = False
+        trait = person in have_trait
+        
         jointP *= gene_prob(people, num_of_gene, one_gene, two_genes, person) * PROBS['trait'][num_of_gene][trait]
 
     # print(jointP)
@@ -214,10 +212,7 @@ def update(probabilities, one_gene, two_genes, have_trait, p):
         else:
             num_of_gene = 0
 
-        if person in have_trait:
-            trait = True
-        else:
-            trait = False
+        trait = person in have_trait
 
         probabilities[person]['gene'][num_of_gene] += p
         probabilities[person]['trait'][trait] += p
