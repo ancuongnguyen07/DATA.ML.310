@@ -157,7 +157,7 @@ class NimAI():
         availableActions = Nim.available_actions(state)
 
         if epsilon and random.random() <= self.epsilon:
-            return random.sample(availableActions,1)[0]
+            return random.choice(list(availableActions))
 
         bestReward = -math.inf
         for acts in availableActions:
